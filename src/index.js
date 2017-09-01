@@ -1,15 +1,18 @@
-import _ from 'lodash';
 import printMe from './print.js';
+import {cube} from './math'
 import append from './append.js';
 import './style.css';
 
 function component() {
-    var element = document.createElement('div');
+    var element = document.createElement('pre');
     var btn = document.createElement('button');
     var state = document.createElement('div');
 
     // Lodash, now imported by this script
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+    element.innerHTML = [
+        'Hello Webpack!',
+        '5 cubed is equal to ' + cube(5)
+    ].join('\n\n');
     element.style.color = 'green';
 
     state.classList.add('state');
@@ -24,7 +27,7 @@ function component() {
     return element;
 }
 
-let element = component();
+var element = component();
 document.body.appendChild(element);
 
 if (module.hot) {

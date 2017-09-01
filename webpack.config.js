@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webPack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -12,7 +13,8 @@ module.exports = {
             title: 'Output Management'
         }),
         new CleanWebpackPlugin(['./dist/']),
-        new webPack.HotModuleReplacementPlugin()
+        new webPack.HotModuleReplacementPlugin(),
+        new UglifyJsPlugin()
     ],
     devtool: 'inline-source-map',
     devServer: {
