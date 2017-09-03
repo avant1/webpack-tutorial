@@ -3,6 +3,10 @@ import {cube} from './math'
 import append from './append.js';
 import './style.css';
 
+if (process.env.NODE_ENV !== 'production') {
+    console.log('Looks like we are in development mode!');
+}
+
 function component() {
     var element = document.createElement('pre');
     var btn = document.createElement('button');
@@ -47,4 +51,3 @@ if (module.hot) {
         document.body.appendChild(element);
     });
 }
-
